@@ -1,0 +1,74 @@
+{% include 'base.html' %}
+{% load static %}
+{% block main %}
+    <main>
+        <section>
+            <!-- https://regardis.com/como-poner-texto-encima-de-una-imagen-con-html-css/ -->
+            <div>
+                <img src="" alt="">
+                <div>
+                    Centrado
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Personalizables</h2>
+            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <!-- En vez de divs, tienen que irs ancors para llevarlos a los personalizables -->
+                  <div class="carousel-item active">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </section>
+        <section>
+            <h2>Más vendido</h2>
+            <div>
+                <div><!--Aca va el item, osea el div de clase card--></div>
+                <div><!--Aca va el item, osea el div de clase card--></div>
+                <div><!--Aca va el item, osea el div de clase card--></div>
+                <!-- Esto va en el css
+                    .slider-container {
+                        display: flex;
+                        width: 100%;
+                        height: 100vh;
+                        overflow-x: scroll
+
+                        /* Vamos a añadir esto 👇 */
+                        scroll-snap-type: x mandatory;
+                    }
+
+                        .slider-container img {
+                        flex: 0 0 100%;
+                        width: 100%;
+                        object-fit: cover;
+
+                        /* Vamos a añadir esto 👇 */
+                        scroll-snap-align: center;
+                    }
+                 -->
+            </div>
+        </section>
+        <section>
+            <h2>Productos</h2>
+            <div>
+                
+            </div>
+        </section>
+    </main>
+{% endblock main %}

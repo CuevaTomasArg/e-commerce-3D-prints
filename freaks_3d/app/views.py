@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .Cart import *
+import pandas
 # Create your views here.
 def index(request):
     products = Product.objects.all()
-    return render(request, 'shop.html',{"products":products})
+    return render(request, 'index.html',{"products":products})
 
 def add_product(request, product_id):
     cart = Cart(request)

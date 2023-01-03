@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  {% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href= "{% static 'css/style.css' %}">
+    {% block scripts %}{% endblock scripts %}
+</head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+                    {% include 'urls.html' %}
+                </li>
+                <li>
+                    <a href="">
+                        <img src="" alt="{% static 'multimedia/logos/logo_freaks_3d' %}">
+                    </a>
+                </li>
+                <li>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+                    {% include 'cart.html' %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% block main %}
+    {% endblock main %}
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                    <strong>Navegación</strong>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'products' %}">Productos</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'customizables' %}">Personalizables</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'filament' %}">Filamento</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Contactos</strong>
+                    <ul>
+                        <li>
+                            <a href="">Agregar telefono en esta perte</a>
+                        </li>
+                        <li>
+                            <a href="">Agregar celular en esta parte</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Redes sociales</strong>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
