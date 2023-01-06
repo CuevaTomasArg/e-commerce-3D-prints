@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import *
 from .Cart import *
 import pandas
+import datetime
 # Create your views here.
 def index(request):
     products = Product.objects.all()
