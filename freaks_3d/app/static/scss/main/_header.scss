@@ -1,0 +1,19 @@
+header{
+    nav{
+        ul{
+            @include flex(row,space-around,center);
+            li{
+                img{
+                    width: 164px;
+                }
+                button{
+                    @include button-border-background-radius(2px solid black,transparent,8px);
+                    padding: 4px;
+                    span{
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+    }
+}

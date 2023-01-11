@@ -1,7 +1,17 @@
 @import "base/vars";
+@import "partials/mixins";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: $background;
+}
 ul{
     list-style-type: none;
 }
 a{
     text-decoration: none;
 }
+@import "main/header";

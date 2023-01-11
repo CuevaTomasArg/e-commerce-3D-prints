@@ -4,10 +4,29 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=75)
-    brand = models.CharField(max_length=75,null=True,blank=True)
 
     def __str__(self):
         return f'{self.name}'
+
+class Brand(models.Model):
+    name = models.CharField(max_length=75)
+    
+    def __str__(self):
+        return f'{self.name}'
+
+
+class Filament(models.Model):
+    name = models.CharField(max_length=75, blank=True,null=True)
+    brad = models.ForeignKey(Brand, on_delete=models.CASCADE,null=True, blank=True)
+    price = models.IntegerField()
+    image = models.ImageField(upload_to = 'product_image')
+    description = models.CharField(max_length=256, blank= True, null=True)
+    stock = models.IntegerField(blank= True, null=True, default=1)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,blank=True,null=True)
+    def __str__(self) :
+        return f'{self.name} - {self.category} - {self.price}'
+    
+
 
 class Product(models.Model):
     name = models.CharField(max_length=64)
@@ -15,10 +34,11 @@ class Product(models.Model):
     price = models.IntegerField()
     image = models.ImageField(upload_to = 'product_image')
     description = models.CharField(max_length=256, blank= True, null=True)
-    stock = models.IntegerField(blank= True, null=True)
+    stock = models.IntegerField(blank= True, null=True, default=1)
     
     def __str__(self) :
         return f'{self.name} - {self.category} - {self.price}'
+
 
 
 class Commentary(models.Model):
@@ -39,6 +59,7 @@ class Customizable(models.Model):
     image = models.ImageField(upload_to='customizable_image')
     description = models.CharField(max_length=256, null=True, blank=True)
     amount = models.IntegerField(blank = True, null=True, default=1)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True, blank=True)
     
 
 
@@ -67,6 +88,8 @@ class ProductBougth(models.Model):
 
 
 class Province(models.Model):
-    name = models.CharField(max_length=16)
+    name = models.CharField(max_length=32)
     shipping_price = models.IntegerField()
+    def __str__(self):
+        return f'{self.name} - {self.shipping_price}'
     

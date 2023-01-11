@@ -4,3 +4,16 @@
     grid-template-rows: $rows;
     grid-template-areas: $areas;
 }
+
+@mixin flex($direction,$content,$aling){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $aling;
+}
+
+@mixin button-border-background-radius($border,$background,$radius){
+    border: $border;
+    background: $background;
+    border-radius: $radius;
+}

@@ -8,30 +8,47 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href= "{% static 'css/style.css' %}">
-    {% block scripts %}{% endblock scripts %}
+    {% block scripts %}{% endblock %}
 </head>
   <body>
     <header>
         <nav>
             <ul>
                 <li>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+                    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <span><i class="bi bi-list"></i></span>
+                    </button>
                     {% include 'urls.html' %}
                 </li>
                 <li>
                     <a href="">
-                        <img src="" alt="{% static 'multimedia/logos/logo_freaks_3d' %}">
+                        <img src="{% static 'multimedia/logos/logo_freaks_3d.svg' %}" alt="Freaks 3d">
                     </a>
                 </li>
                 <li>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
-                    {% include 'cart.html' %}
+                    {% if user.is_authenticated %}
+                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptionsCart" aria-controls="offcanvasWithBothOptions">
+                            <span>
+                                <i class="bi bi-cart3"></i>
+                            </span>
+                        </button>
+                        {% if user.username == "tomas" %}
+                        <button>
+                            Administracion
+                        </button>
+                        {% endif %}
+                        {% include 'cart.html' %}
+                    {% else %}
+                        <ul>
+                            <li><button>Iniciar Sesion</button></li>
+                            <li><button>Registrarse</button></li>
+                        </ul>
+                    {% endif %}
                 </li>
             </ul>
         </nav>
     </header>
-    {% block main %}
-    {% endblock main %}
+    {% block main %}{% endblock %}
     <footer>
         <nav>
             <ul>
@@ -45,10 +62,11 @@
                             <a href="{% url 'products' %}">Productos</a>
                         </li>
                         <li>
-                            <a href="{% url 'customizables' %}">Personalizables</a>
+                            <a href="{% url 'customizable' %}">Personalizables</a>
                         </li>
                         <li>
-                            <a href="{% url 'filament' %}">Filamento</a>
+                            <a href="{% url 'filament' 1 %}">Filamento</a>
+                            {% comment %} Tengo que cambiar esto, deberia ir un nombre para este parametro {% endcomment %}
                         </li>
                     </ul>
                 </li>

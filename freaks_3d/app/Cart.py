@@ -18,6 +18,7 @@ class Cart:
                 "category":product.category,
                 "accumulated":product.price,
                 "amount":1,
+                "image":product.image.url,
             }
         else:
             self.cart[id]["amount"] += 1
