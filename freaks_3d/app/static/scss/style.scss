@@ -1,5 +1,6 @@
 @import "base/vars";
 @import "partials/mixins";
+@import "partials/class";
 *{
     padding: 0;
     margin: 0;
@@ -15,3 +16,5 @@ a{
     text-decoration: none;
 }
 @import "main/header";
+@import "main/footer";
+@import "main/index";

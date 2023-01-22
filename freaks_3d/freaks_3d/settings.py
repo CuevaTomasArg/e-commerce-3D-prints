@@ -130,6 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 ## Usar el login redirect recien cuando el proyecto este avanzado en los usuarios
-# LOGIN_REDIRECT_URL = 'index'
-# LOGIN_URL = 'Login'
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'Login'
 

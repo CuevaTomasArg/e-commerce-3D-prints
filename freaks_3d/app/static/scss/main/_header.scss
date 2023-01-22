@@ -1,17 +1,33 @@
 header{
+    height: 128px;
     nav{
-        ul{
+        >ul{
             @include flex(row,space-around,center);
-            li{
+            >li{
+                ul{
+                    @include flex(row,space-around,center);
+                }
                 img{
                     width: 164px;
                 }
                 button{
-                    @include button-border-background-radius(2px solid black,transparent,8px);
+                    @include button-border-background-radius(3px solid rgb(216, 216, 216),transparent,10px);
                     padding: 4px;
+                    &.button-exe{
+                        margin:8px;
+                        span{
+                            font-size: 1.2rem;
+                            color:white
+                        }
+                    }
                     span{
                         font-size: 32px;
+                        color:rgb(180, 180, 180);
                     }
+                }
+                &:nth-child(2){
+                    position:relative;
+                    left: 50px;
                 }
             }
         }

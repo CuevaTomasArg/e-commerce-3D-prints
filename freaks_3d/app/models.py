@@ -35,7 +35,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to = 'product_image')
     description = models.CharField(max_length=256, blank= True, null=True)
     stock = models.IntegerField(blank= True, null=True, default=1)
-    
+    in_cart = models.BooleanField(default=False)
     def __str__(self) :
         return f'{self.name} - {self.category} - {self.price}'
 

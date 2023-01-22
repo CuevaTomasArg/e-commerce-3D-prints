@@ -1,12 +1,23 @@
 from django.shortcuts import render,redirect
 from .models import *
+from .forms import SingUpForm
 from .Cart import *
 import pandas
 import datetime
+
+from django.views.generic import ListView 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView,UpdateView
+from django.contrib.auth.views import LoginView, LogoutView
+
+
 # Create your views here.
 def index(request):
     products = Product.objects.all()
-    return render(request, 'index.html',{"products":products})
+    customizable = Category.objects.filter(name__contains = "Personalizable")
+    customizables =Product.objects.filter(category_id = customizable.first().id)
+    best_product = Category.objects.filter(name__contains = "Mas vendido")
+    best_products = Product.objects.filter(category_id = best_product.first().id)
+    return render(request, 'index.html',{"products":products,"customizables":customizables,"best_products":best_products})
 
 def products(request):
     return render(request, 'products.html', {"products": Product.objects.all()})
@@ -44,3 +55,16 @@ def clean_up_cart(request):
     cart.clean_up()
     return redirect("index")
 
+# class SingUp(CreateView):
+#     pass
+#     # form_class = SingUpForm
+#     # success_url = '/'
+#     # template_name = 'singup.html'
+
+# class AdminLoginView(LoginView):
+#     pass
+#     # template_name = 'login.html'
+    
+# class AdminLogoutView(LogoutView):
+#     pass
+#     # template_name = 'logout.html'

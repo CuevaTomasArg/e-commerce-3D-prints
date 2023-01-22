@@ -1,0 +1,24 @@
+footer{
+    width:100%;
+    nav{
+        >ul{
+            @include flex(row,space-around,flex-start);
+            >li{
+                strong{
+                    font-size: 1.2rem;
+                    color: $font-dark-strong;
+                }
+                ul{
+                    @include flex(column,space-evenly,flex-start);
+                    li{
+                        margin:4px;
+                        a{
+                            @include ancor($font-dark);
+                            font-size:1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

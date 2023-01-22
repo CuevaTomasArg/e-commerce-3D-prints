@@ -5,7 +5,7 @@ from .models import *
 
 class CategoryForm(forms.Form):
     name = forms.CharField(max_length=75)
-    brand = forms.CharField(max_length=75,null=True,blank=True)
+    brand = forms.CharField(max_length=75)
 
 class CommentaryForm(forms.Form):
     commentary = forms.CharField(max_length=256)
@@ -18,16 +18,16 @@ class QueryForm(forms.Form):
 class Customizable(forms.Form):
     user = forms.ModelChoiceField(queryset= User.objects.all())
     image = forms.ImageField()
-    description = forms.CharField(max_length=256, null=True, blank=True)
-    phone = forms.CharField(null=True, blank=True)
+    description = forms.CharField(max_length=256 )
+    phone = forms.CharField()
     area_code = forms.CharField(max_length=9)
 
 
-class Bought(forms.Form):
+class BoughtForm(forms.Form):
     user = forms.ModelChoiceField(queryset= User.objects.all())
     direction = forms.CharField(max_length = 256)
     direction_number = forms.IntegerField()
-    cp = forms.IntegerField(max_length = 32)
+    cp = forms.IntegerField()
     date = forms.DateTimeField()
 
 class ProductBougth(forms.Form):
@@ -35,7 +35,7 @@ class ProductBougth(forms.Form):
     name = forms.CharField(max_length=64)
     category = forms.ModelChoiceField(queryset= Category.objects.all())
     price = forms.IntegerField()
-    amount = forms.IntegerField(blank = True, null=True, default=1)
+    amount = forms.IntegerField()
     accumulated = forms.IntegerField()
 
 class SingUpForm(UserCreationForm):

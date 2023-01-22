@@ -1,0 +1,11 @@
+.index{
+    section:first-child{
+        >div{
+            height: 600px;
+            width: 100%;
+            img{
+                height: 100%;
+            }
+        }
+    }
+}

@@ -12,8 +12,31 @@
     align-items: $aling;
 }
 
+@mixin position($position,$top,$right,$bottom,$left){
+    position: $position;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+}
+
 @mixin button-border-background-radius($border,$background,$radius){
     border: $border;
     background: $background;
     border-radius: $radius;
+    transition:all .3s;
+    &:hover{
+        background-color:lighten($background, 10%);
+    }
+    &:active{
+        background-color:lighten($background, 20%);
+    }
+}
+
+@mixin ancor($color){
+    color: $color;
+    transition: all .2s;
+    &:hover{
+        color: lighten($color, 15%);
+    }
 }
